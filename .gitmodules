@@ -11,12 +11,6 @@
   path = vim/bundle/nerdtree
   url = https://github.com/vim-scripts/The-NERD-tree.git
   ignore = untracked
-[submodule "vim/bundle/phpcomplete"]
-  path = vim/bundle/phpcomplete
-  url = https://github.com/shawncplus/phpcomplete.vim
-[submodule "vim/bundle/clojure-static"]
-	path = vim/bundle/clojure-static
-	url = git@github.com:guns/vim-clojure-static.git
 [submodule "vim/bundle/rainbow_parentheses"]
 	path = vim/bundle/rainbow_parentheses
 	url = git@github.com:kien/rainbow_parentheses.vim.git
@@ -62,9 +56,6 @@
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
 	url = git@github.com:Lokaltog/vim-powerline.git
-[submodule "vim/bundle/golang"]
-	path = vim/bundle/golang
-	url = git@github.com:jnwhiteh/vim-golang.git
 [submodule "vim/bundle/gocode"]
 	path = vim/bundle/gocode
 	url = git@github.com:Blackrush/vim-gocode.git
