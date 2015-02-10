@@ -34,6 +34,9 @@ syntax on
 " In Makefiles, don't expand tabs to spaces, since we need the actual tabs
 autocmd FileType make set noexpandtab
 
+" autocmd Filetype go set makeprg=go\ build
+
+
 " Useful macros for cleaning up code to conform to LLVM coding guidelines
 
 " Delete trailing whitespace and tabs at the end of each line
@@ -120,7 +123,7 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 map <leader>vimrc :tabe ~/.vim/.vimrc<cr>
-nmap <F8> :TagbarToggle<CR>
+
 :map <M-Esc>[62~ <MouseDown> 
 :map! <M-Esc>[62~ <MouseDown> 
 :map <M-Esc>[63~ <MouseUp> 
@@ -140,6 +143,10 @@ map <F2> :NERDTreeToggle<CR>
 "Enable Ctrl+P to paste
 map <C-y> :set paste<CR>
 
+" Go build, run, test
+map <F5> :GoRun <CR>
+map <F6> :GoBuild <CR>
+map <F7> :GoTest <CR>
 
 " Let's remember some things, like where the .vim folder is.
 if has("win32") || has("win64")
