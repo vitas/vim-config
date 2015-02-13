@@ -32,10 +32,10 @@ set smarttab
 syntax on
 
 " In Makefiles, don't expand tabs to spaces, since we need the actual tabs
-autocmd FileType make set noexpandtab
+" autocmd FileType make set noexpandtab
 
-" autocmd Filetype go set makeprg=go\ build
-
+" autocmd Filetype make set makeprg=go\ build
+autocmd Filetype go set makeprg=go\ build\ ./...
 
 " Useful macros for cleaning up code to conform to LLVM coding guidelines
 
@@ -95,13 +95,21 @@ set foldmethod=indent
 set foldlevel=99
 
 " SuperTab plugin
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+            \ if &omnifunc == "" |
+            \   setlocal omnifunc=syntaxcomplete#Complete |
+            \ endif
+endif
 
-au FileType python set omnifunc=pythoncomplete#Complete
+autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" au FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType go set omnifunc=gocomplete#Complete
+" au FileType go set omnifunc=go#complete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 
 set completeopt=menuone,longest,preview
-
-
 
 
 
@@ -137,6 +145,7 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+map <F8> :TagbarToggle<CR>
 
 " NERDTree
 map <F2> :NERDTreeToggle<CR>
@@ -189,8 +198,9 @@ if filereadable($HOME.'/.vimrc_local')
     source $HOME/.vimrc_local
 endif
 
-" Syntax highlighting for clojurescript files
-autocmd BufRead,BufNewFile *.cljs setlocal filetype=clojure
+autocmd BufRead,BufNewFile *.go setlocal filetype=go
+
+
 " For statusline
 set encoding=utf-8
 set t_Co=256
@@ -225,3 +235,5 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
     \ }
+
+
