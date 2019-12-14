@@ -45,13 +45,12 @@ command! DeleteTrailingWs :%s/\s\+$//
 " Convert all tab characters to two spaces
 command! Untab :%s/\t/  /g
 
-" Enable pathogen
-"call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set nocp
+source vim/autoload/pathogen.vim "location of my pathogen.vim
+
+" call pathogen#runtime_append_all_bundles()
 " Enable pathogen
 call pathogen#infect()
-" call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 
